@@ -21,7 +21,7 @@ app.use(cors({
 app.use(express.json());
 
 // Endpoint para obtener el tipo de cambio USD/MXN
-app.get('/api/tipo-cambio', async (req, res, next) => {
+app.get('/api/tipo-cambio', async (req, res, next) => { 
     try {
         const response = await fetch(`https://open.er-api.com/v6/latest/MXN`);
         const apiData = await response.json();
