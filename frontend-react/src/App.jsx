@@ -4,8 +4,8 @@ import { useState, useEffect } from 'react';
 // Importación de tus componentes (Páginas)
 import Inicio from './paginas/inicio';
 import Catalogo from './paginas/catalogo';
-import Login from './paginas/Login';
-import Registro from './paginas/Registro';
+import Login from './paginas/login';
+import Registro from './paginas/registro';
 import Carrito from './paginas/carrito';
 import Perfil from './paginas/perfil';
 import CompraExitosa from './paginas/compraexitosa';
