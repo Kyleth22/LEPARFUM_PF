@@ -91,21 +91,28 @@ const verificarToken = (req, res, next) => {
 
 app.post('/api/registro', async (req, res, next) => {
     const { usuario, correo, password, direccion } = req.body; 
-    
+
     try {
         if (!usuario || !correo || !password) {
-            return res.status(400).json({ message: "Faltan campos obligatorios" });
+            return res.status(400).json({ message: "Nombre, correo y contraseña son obligatorios." });
         }
 
         const salt = await bcrypt.genSalt(10);
         const hashedPassword = await bcrypt.hash(password, salt);
-        const query = 'INSERT INTO usuarios (nombre_usuario, email, password, direccion, rol) VALUES (?, ?, ?, ?, "cliente")';
-        await db.query(query, [usuario, correo, hashedPassword, direccion || null]);
         
+        const query = 'INSERT INTO usuarios (nombre_usuario, email, password, direccion, rol) VALUES (?, ?, ?, ?, "cliente")';
+        
+        await db.query(query, [
+            usuario, 
+            correo, 
+            hashedPassword, 
+            direccion || null 
+        ]);
         res.status(201).json({ status: 'success', message: 'Usuario creado correctamente' });
     } catch (error) {
+        console.error("Error en registro:", error.message);
         if (error.code === 'ER_DUP_ENTRY') return res.status(400).json({ message: 'El correo ya existe.' });
-        next(error);
+        next(error); 
     }
 });
 
