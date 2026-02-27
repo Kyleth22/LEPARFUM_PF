@@ -8,7 +8,7 @@ require('dotenv').config();
 const app = express();
 const path = require('path');
 
-const FRONTEND_URL = process.env.FRONTEND_URL || 'http://localhost:5173';
+const FRONTEND_URL = process.env.FRONTEND_URL || 'https://leparfum-95tqqe4ur-kyleth22s-projects.vercel.app';
 
 app.use(express.static(path.join(__dirname, '../Frontend/dist')));
 
