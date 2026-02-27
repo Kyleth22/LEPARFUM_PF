@@ -42,18 +42,14 @@ describe('Pruebas de Robustez y Seguridad de la API', () => {
     });
 
     // --- 3. TEST DE ROLES / AUTORIZACIÓN (SEGURIDAD)
-    test('Seguridad: PUT /api/admin/actualizar-stock debería ser rechazado si no es admin', async () => {
+    test('Seguridad: PUT /api/admin/actualizar-stock debería ser rechazado', async () => {
         const res = await request(app)
             .put('/api/admin/actualizar-stock')
-            .set('authorization', token || 'no-token')
+            .set('authorization', token || 'token-falso')
             .send({ producto_id: 1, nuevo_stock: 99 });
 
-        // Verificamos que el middleware de seguridad funcione
-        if (res.statusCode === 403) {
-            expect(res.body.message).toContain("permisos de administrador");
-        } else {
-            expect([200, 403]).toContain(res.statusCode);
-        }
+        // Si el token es inválido o no es admin, debería dar 401 o 403
+        expect([401, 403]).toContain(res.statusCode);
     });
 
     // --- 4. TEST DE GESTIÓN DE ERRORES 
