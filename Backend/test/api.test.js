@@ -11,7 +11,7 @@ describe('Pruebas de Robustez y Seguridad de la API', () => {
     beforeAll(async () => {
         const login = await request(app)
             .post('/api/login')
-            .send({ correo: 'kyleth2@hotmail.com', password: 'Prueba123' });
+            .send({ correo: 'fer@hotmail.com', password: 'Prueba123' });
         
         token = login.body.token;
         usuarioId = login.body.usuario && login.body.usuario.id;
