@@ -1,0 +1,1299 @@
+
+
+/* =====================
+    VARIABLES DE COLOR
+===================== */
+:root {
+    --fondo-principal: #1e1e1e;
+    --fondo-secundario: #262626;
+    --fondo-tarjetas: #2e2e2e;
+    --color-acento: #c7a14a;
+    --texto-principal: #f2f2f2;
+    --texto-secundario: #cccccc;
+}
+
+/* =====================
+    CONFIGURACIÓN GLOBAL
+===================== */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: var(--fondo-principal);
+    color: var(--texto-principal);
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Obliga al body a medir toda la pantalla */
+}
+
+/* =====================
+    HEADER Y NAVEGACIÓN
+===================== */
+.header-principal {
+    background-color: var(--fondo-secundario);
+    border-bottom: 1px solid #333;
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+}
+
+.logo h1 {
+    letter-spacing: 6px;
+    font-size: 26px;
+    margin: 0;
+    color: var(--color-acento);
+}
+
+.auth-links {
+    display: flex;
+    gap: 15px;
+}
+
+.auth-links a {
+    padding: 8px 20px;
+    border: 2px solid var(--color-acento);
+    border-radius: 25px;
+    color: var(--color-acento);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.auth-links a:hover {
+    background-color: var(--color-acento);
+    color: #1e1e1e;
+}
+
+.nav-principal {
+    background-color: #141414;
+}
+
+.nav-principal ul {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    list-style: none;
+    padding: 15px 40px;
+    margin: 0;
+    gap: 15px;
+}
+
+.nav-principal a {
+    padding: 10px 22px;
+    border-radius: 25px;
+    border: 2px solid transparent;
+    color: var(--texto-principal);
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.nav-principal a:hover {
+    border-color: var(--color-acento);
+    color: var(--color-acento);
+}
+
+.nav-principal a.activo {
+    background-color: var(--color-acento);
+    color: #1e1e1e;
+}
+
+/* =====================
+    CONTENIDO INICIAL (INDEX)
+===================== */
+.contenido-header {
+    max-width: 900px;
+    margin: 60px auto;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.contenido-header p {
+    color: var(--texto-secundario);
+    margin-bottom: 20px;
+}
+
+/* =====================
+    PERFUMES POPULARES
+===================== */
+.perfumes {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.perfumes h2 {
+    letter-spacing: 3px;
+    margin-bottom: 40px;
+}
+
+.contenedor_perfumes {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.caja_perfume {
+    background-color: var(--fondo-tarjetas);
+    width: 280px;
+    padding: 25px;
+    border-radius: 18px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    transition: transform 0.3s ease;
+}
+
+.caja_perfume:hover {
+    transform: translateY(-6px);
+}
+
+.caja_perfume img {
+    width: 100%;
+    border-radius: 10px;
+    margin: 15px 0;
+}
+
+.caja_perfume p {
+    font-size: 15px;
+    color: var(--texto-secundario);
+    text-align: justify;
+}
+
+.boton_vermas {
+    display: inline-block;
+    margin-top: 40px;
+    padding: 14px 40px;
+    border: 2px solid var(--color-acento);
+    color: var(--color-acento);
+    border-radius: 30px;
+    text-decoration: none;
+    letter-spacing: 2px;
+    transition: all 0.4s ease;
+}
+
+.boton_vermas:hover {
+    background-color: var(--color-acento);
+    color: #1e1e1e;
+}
+
+/* =====================
+    TEXTBOXES Y FORMULARIOS
+===================== */
+.recomendaciones {
+    background-color: var(--fondo-secundario);
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.auth-page {
+    min-height: 60vh;
+}
+
+.recomendaciones form {
+    max-width: 500px;
+    margin: 20px auto 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Estilo original de tus textboxes */
+.recomendaciones input,
+.recomendaciones textarea,
+.recomendaciones select {
+    background-color: #1e1e1e;
+    border: 1px solid #555;
+    padding: 12px;
+    margin-bottom: 15px;
+    color: var(--texto-principal);
+    border-radius: 6px;
+    font-family: inherit;
+    transition: border-color 0.3s;
+    resize: none;
+}
+
+.recomendaciones input:focus {
+    outline: none;
+    border-color: var(--color-acento);
+}
+
+.recomendaciones button {
+    background-color: transparent;
+    border: 2px solid var(--color-acento);
+    color: var(--color-acento);
+    padding: 12px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.recomendaciones button:hover {
+    background-color: var(--color-acento);
+    color: #1e1e1e;
+}
+
+/* =====================
+    PERFIL DE USUARIO
+===================== */
+.perfil-container {
+    display: flex;
+    justify-content: center;
+    padding: 80px 20px;
+}
+
+.perfil-card {
+    background-color: var(--fondo-tarjetas);
+    width: 100%;
+    max-width: 600px;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+}
+
+.perfil-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.perfil-header h2 {
+    margin: 0;
+    letter-spacing: 2px;
+}
+
+.perfil-subtitulo {
+    font-size: 14px;
+    color: var(--texto-secundario);
+}
+
+.perfil-datos {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.dato {
+    border-bottom: 1px solid #3a3a3a;
+    padding-bottom: 10px;
+}
+
+.dato .label {
+    display: block;
+    font-size: 13px;
+    color: var(--texto-secundario);
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+    text-align: left;
+}
+
+/* Ajuste visual para el input dentro del perfil */
+.perfil-datos input {
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    color: var(--texto-principal);
+    font-size: 16px;
+    font-weight: 600;
+    padding: 0;
+    margin-bottom: 0;
+}
+
+.perfil-datos input:enabled {
+    background-color: #1e1e1e;
+    border: 1px solid var(--color-acento);
+    padding: 8px;
+    border-radius: 6px;
+    margin-top: 5px;
+    font-weight: normal;
+}
+
+.perfil-datos input:disabled {
+    cursor: default;
+}
+
+.perfil-acciones {
+    display: flex;
+    gap: 15px;
+    margin-top: 35px;
+}
+
+.perfil-acciones button, .perfil-acciones a {
+    flex: 1;
+    text-align: center;
+    padding: 14px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.btn-primario {
+    background-color: var(--color-acento);
+    color: #1e1e1e;
+    border: 2px solid var(--color-acento);
+}
+
+.btn-secundario {
+    background-color: transparent;
+    border: 2px solid var(--color-acento);
+    color: var(--color-acento);
+}
+
+/* =====================
+    REPARACIÓN ESPECÍFICA PERFIL
+===================== */
+
+/* Forzamos que los inputs en modo "lectura" no parezcan textboxes */
+.perfil-datos .dato input:disabled {
+    background-color: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    color: var(--texto-principal) !important;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: default;
+    height: auto;
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+/* Cuando se habilitan (Modo Edición), recuperan tu diseño original */
+.perfil-datos .dato input:enabled {
+    background-color: #1e1e1e !important;
+    border: 1px solid var(--color-acento) !important;
+    padding: 12px !important;
+    margin-top: 8px !important;
+    border-radius: 6px !important;
+    color: var(--texto-principal);
+    width: 100%;
+}
+
+/* Estructura de la tarjeta para que se vea como la versión que te gustó */
+.perfil-card .perfil-datos {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.perfil-card .dato {
+    border-bottom: 1px solid #3a3a3a;
+    padding-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.perfil-card .label {
+    display: block;
+    font-size: 13px;
+    color: var(--texto-secundario);
+    margin-bottom: 4px;
+    text-align: left;
+}
+
+/* =====================
+    REPARACIÓN SEGURIDAD
+===================== */
+/* Estilos unificados para la página de cambiar contraseña */
+.contenedor-seguridad {
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+.tarjeta-seguridad {
+    background-color: var(--fondo-secundario);
+    padding: 40px;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 480px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+}
+
+.tarjeta-seguridad h2 {
+    text-align: center;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.texto-seguridad {
+    text-align: center;
+    font-size: 14px;
+    color: var(--texto-secundario);
+    margin-bottom: 30px;
+}
+.form-seguridad {
+    display: flex;
+    flex-direction: column;
+}
+
+.campo-form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+.form-seguridad .campo-form input {
+    background-color: #1e1e1e;
+    border: 1px solid #555;
+    padding: 14px;
+    margin-top: 5px;
+    border-radius: 6px;
+    color: var(--texto-s);
+    width: 100%;
+    transition: border-color 0.3s ease;
+}
+
+.form-seguridad .campo-form input:focus {
+    outline: none;
+    border-color: var(--color-acento);
+}
+
+.acciones-seguridad {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+/* Botones específicos de seguridad para que no hereden estilos rotos */
+.acciones-seguridad .btn-primario {
+    background-color: var(--color-acento) !important;
+    color: #1e1e1e !important;
+    border: 2px solid var(--color-acento) !important;
+    padding: 14px;
+    border-radius: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+}
+
+.acciones-seguridad .btn-secundario {
+    background-color: transparent !important;
+    border: 2px solid #555 !important;
+    color: var(--texto-secundario) !important;
+    padding: 14px;
+    border-radius: 30px;
+    text-decoration: none;
+    text-align: center;
+}
+
+.acciones-seguridad .btn-secundario:hover {
+    border-color: var(--color-acento) !important;
+    color: var(--color-acento) !important;
+}
+
+/* =====================
+    FILTROS (DERECHA Y ESTILIZADOS)
+===================== */
+.filtros-catalogo {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-bottom: 30px;
+    padding: 0 40px;
+}
+
+.filtros-catalogo select {
+    background-color: var(--fondo-secundario);
+    border: 1px solid #555;
+    color: var(--texto-principal);
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    outline: none;
+    transition: border-color 0.3s;
+    appearance: none;
+    /* Flecha dorada */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23c7a14a' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: calc(100% - 10px) center;
+    padding-right: 30px;
+}
+
+.filtros-catalogo select:hover {
+    border-color: var(--color-acento);
+}
+
+/* =====================
+    CONTENEDOR CATÁLOGO (GRID DE 6)
+===================== */
+.contenedor-catalogo {
+    display: grid !important;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 20px;
+    width: 100%;
+    max-width: 1450px;
+    margin: 0 auto;
+    padding: 40px; /* Añadimos padding para que no pegue con el título ni el footer */
+}
+
+/* =====================
+    TARJETAS (DISEÑO COMPACTO)
+===================== */
+.contenedor-catalogo .caja_perfume {
+    position: static !important;
+    float: none !important;
+    width: 100%;
+    min-height: 300px; /* Altura compacta */
+    background-color: var(--fondo-tarjetas);
+    padding: 15px;
+    border-radius: 14px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+    text-align: center;
+    transition: transform 0.25s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.contenedor-catalogo .caja_perfume:hover {
+    transform: translateY(-5px);
+}
+
+/* IMAGEN */
+.contenedor-catalogo .caja_perfume img {
+    width: 100%;
+    height: 130px; /* Tamaño reducido */
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+/* TEXTO */
+.contenedor-catalogo .caja_perfume h3 {
+    font-size: 13px;
+    margin: 8px 0;
+    color: var(--texto-principal);
+    line-height: 1.2;
+}
+
+.contenedor-catalogo .caja_perfume p {
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--color-acento);
+    margin: 5px 0;
+}
+
+/* =====================
+    BOTONES (ESTILO SÓLIDO)
+===================== */
+.contenedor-catalogo .acciones-producto {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.contenedor-catalogo button {
+    padding: 8px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 11px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+/* Botón Carrito (Sólido) */
+.contenedor-catalogo .acciones-producto button:first-child {
+    background-color: var(--color-acento);
+    color: #1e1e1e;
+}
+
+.contenedor-catalogo .acciones-producto button:first-child:hover {
+    opacity: 0.85;
+}
+
+/* Botón Deseos (Delineado) */
+.contenedor-catalogo .acciones-producto .deseo {
+    background-color: transparent;
+    border: 1px solid var(--color-acento);
+    color: var(--color-acento);
+}
+
+.contenedor-catalogo .acciones-producto .deseo:hover {
+    background-color: var(--color-acento);
+    color: #1e1e1e;
+}
+
+/* =====================
+    RESPONSIVE
+===================== */
+@media (max-width: 1400px) {
+    .contenedor-catalogo {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 900px) {
+    .contenedor-catalogo {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .filtros-catalogo {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 600px) {
+    .contenedor-catalogo {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* =====================
+    ESTILO ESPECÍFICO LISTA DE DESEOS
+===================== */
+
+/* Contenedor principal de la página de deseos */
+.deseos-page {
+    padding: 80px 0; /* Espacio extra arriba para que no choque con el nav */
+    min-height: 70vh;
+}
+
+.deseos-page h2 {
+    text-align: center;
+    letter-spacing: 3px;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+}
+
+/* Ajuste específico para el botón de eliminar de la lista */
+.btn-eliminar.deseo {
+    background-color: transparent !important;
+    border: 1px solid #555 !important;
+    color: var(--texto-secundario) !important;
+}
+
+.btn-eliminar.deseo:hover {
+    border-color: #ff4d4d !important; /* Rojo sutil para peligro/quitar */
+    color: #ff4d4d !important;
+}
+main {
+    flex: 1; /* Esto hace que el contenido crezca y mande el footer al fondo */
+}
+
+
+/* =====================
+    PÁGINA DE CARRITO
+===================== */
+.carrito-container {
+    max-width: 1400px; /* De 1200px a 1400px para que sea más largo */
+    margin: 40px auto;
+    padding: 0 40px;
+    flex: 1;
+}
+
+.carrito-container h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    letter-spacing: 2px;
+}
+
+.carrito-contenido {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+/* LISTA DE PRODUCTOS */
+.carrito-productos {
+    flex: 3; /* De 2 a 3 para que los contenedores de perfume se estiren más */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.item-carrito {
+    background-color: var(--fondo-tarjetas);
+    padding: 20px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.item-carrito img {
+    width: 100px; /* De 80px a 100px */
+    height: 100px;
+    object-fit: contain;
+    background: white;
+    border-radius: 8px;
+}
+
+.info-item {
+    flex: 3; 
+}
+
+.info-item h3 {
+    font-size: 16px;
+    margin: 0 0 5px 0;
+}
+
+.info-item .precio {
+    color: var(--texto-secundario);
+    font-size: 14px;
+    margin: 0;
+}
+
+/* CONTROLES DE CANTIDAD */
+.cantidad {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.cantidad button {
+    background: transparent;
+    border: 1px solid var(--color-acento);
+    color: var(--color-acento);
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.cantidad button:hover {
+    background: var(--color-acento);
+    color: #1e1e1e;
+}
+
+.subtotal {
+    flex: 1;
+    font-weight: bold;
+    text-align: right;
+    font-size: 16px;
+    color: var(--texto-principal);
+}
+
+.eliminar {
+    background: transparent;
+    border: none;
+    color: #ff4d4d;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 0 10px;
+}
+
+/* RESUMEN DEL PEDIDO */
+.resumen-carrito {
+    flex: 1;
+    background-color: var(--fondo-secundario);
+    padding: 30px;
+    border-radius: 20px;
+    position: sticky;
+    top: 20px;
+}
+
+.resumen-carrito h3 {
+    text-align: center;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #444;
+    padding-bottom: 15px;
+}
+
+.resumen-linea {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    color: var(--texto-secundario);
+}
+
+.resumen-total {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #444;
+    font-weight: bold;
+    font-size: 18px;
+    color: var(--texto-principal);
+}
+
+.resumen-carrito .btn-principal, 
+.resumen-carrito .btn-secundario {
+    display: block;
+    text-align: center;
+    padding: 15px;
+    margin-top: 15px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.btn-principal {
+    background-color: var(--color-acento);
+    color: #1e1e1e;
+}
+
+.btn-secundario {
+    border: 1px solid var(--color-acento);
+    color: var(--color-acento);
+}
+
+@media (max-width: 900px) {
+    .carrito-contenido { flex-direction: column; }
+    .resumen-carrito { width: 100%; }
+}
+/* =====================
+    PÁGINA DE CONFIRMACIÓN
+===================== */
+.confirmacion-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 40px;
+    flex: 1;
+}
+
+.confirmacion-container h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    letter-spacing: 2px;
+}
+
+.confirmacion-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dos columnas */
+    gap: 30px;
+}
+
+.bloque-confirmacion {
+    background-color: var(--fondo-tarjetas);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+}
+
+.bloque-confirmacion h3 {
+    margin-top: 0;
+    border-bottom: 1px solid #444;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+    color: var(--color-acento);
+    font-size: 1.2rem;
+}
+
+.info-texto {
+    color: var(--texto-secundario);
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+/* Estilo para los formularios de edición (dentro de details) */
+.editar-detalle summary {
+    color: var(--color-acento);
+    cursor: pointer;
+    font-weight: bold;
+    margin-bottom: 10px;
+    outline: none;
+}
+
+.editar-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px dashed #555;
+}
+
+.editar-form input, .editar-form select {
+    background-color: #1e1e1e;
+    border: 1px solid #444;
+    padding: 10px;
+    color: white;
+    border-radius: 6px;
+}
+
+/* Bloque del Total (Ocupa dos columnas abajo) */
+.total-confirmacion {
+    grid-column: 1 / -1;
+    background-color: var(--fondo-secundario);
+}
+
+.linea-total {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    color: var(--texto-secundario);
+}
+
+.linea-total.final {
+    border-top: 1px solid #555;
+    padding-top: 15px;
+    margin-top: 15px;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--texto-principal);
+}
+
+/* Botones */
+.confirmacion-container .btn-principal,
+.confirmacion-container .btn-secundario {
+    display: block;
+    text-align: center;
+    padding: 18px;
+    margin-top: 15px;
+    border-radius: 35px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* Responsive */
+@media (max-width: 850px) {
+    .confirmacion-grid { grid-template-columns: 1fr; }
+}
+/* =====================
+    PÁGINA DE COMPRA EXITOSA
+===================== */
+.exito-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 75vh; /* Centra la tarjeta verticalmente */
+    padding: 40px 20px;
+}
+
+.exito-card {
+    background-color: var(--fondo-tarjetas);
+    max-width: 550px;
+    width: 100%;
+    padding: 50px 40px;
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+}
+
+/* El círculo dorado con el check */
+.icono-exito {
+    background-color: var(--color-acento);
+    color: #1e1e1e;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    font-size: 50px;
+    line-height: 90px;
+    margin: 0 auto 30px;
+    font-weight: bold;
+}
+
+.exito-card h2 {
+    font-size: 28px;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    color: var(--texto-principal);
+}
+
+.exito-card p {
+    color: var(--texto-secundario);
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Detalle del número de pedido */
+.exito-detalle {
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    border-radius: 12px;
+    margin: 25px 0 !important;
+    border: 1px dashed #444;
+}
+
+.exito-detalle strong {
+    color: var(--color-acento);
+}
+
+/* Contenedor de botones */
+.exito-acciones {
+    display: flex;
+    gap: 15px;
+    margin-top: 35px;
+}
+
+.exito-acciones .btn-principal,
+.exito-acciones .btn-secundario {
+    flex: 1;
+    padding: 15px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.exito-acciones .btn-principal {
+    background-color: var(--color-acento);
+    color: #1e1e1e;
+    border: 2px solid var(--color-acento);
+}
+
+.exito-acciones .btn-secundario {
+    background-color: transparent;
+    color: var(--color-acento);
+    border: 2px solid var(--color-acento);
+}
+
+.exito-acciones a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(199, 161, 74, 0.2);
+}
+/* Asegura que el cuerpo ocupe al menos el 100% de la pantalla */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+main, .perfumes {
+    flex: 1;
+}
+
+
+/* Responsive para móviles */
+@media (max-width: 500px) {
+    .exito-acciones {
+        flex-direction: column;
+    }
+}
+
+/* =====================
+     FOOTER
+===================== */
+.footer {
+    background-color: #141414;
+    text-align: center;
+    padding: 30px 20px;
+    font-size: 14px;
+    color: #9c9c9c;
+    border-top: 1px solid #333;
+}
+
+/* =====================
+     RESPONSIVE
+===================== */
+@media (max-width: 768px) {
+    .header-top {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .nav-principal ul {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .perfil-acciones {
+        flex-direction: column;
+    }
+
+    .acciones-seguridad {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 600px) {
+    /* Header: Logo arriba, botones abajo */
+    .header-top {
+        flex-direction: column;
+        padding: 15px;
+        gap: 15px;
+    }
+
+    /* Navegación: Enlaces en cuadrícula de 2x2 o lista */
+    .nav-principal ul {
+        padding: 10px;
+        justify-content: center;
+        gap: 5px;
+    }
+
+    .nav-principal a {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+}
+
+/* ==========================================
+   AJUSTE ESPECÍFICO PARA CARRITO EN MÓVIL
+   ========================================== */
+@media (max-width: 600px) {
+    /* 1. El contenedor principal deja de ser horizontal */
+    .carrito-contenido {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    /* 2. Cada tarjeta de perfume se vuelve vertical */
+    .item-carrito {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+        position: relative; /* Para la X de eliminar */
+    }
+
+    /* 3. Imagen más grande y centrada */
+    .item-carrito img {
+        width: 140px;
+        height: 140px;
+        margin: 0 auto 15px auto;
+    }
+
+    /* 4. La info, los controles y el precio se apilan */
+    .info-item, .cantidad, .subtotal {
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+
+    .info-item h3 {
+        font-size: 18px;
+    }
+
+    .subtotal {
+        text-align: center;
+        font-size: 20px;
+        color: var(--color-acento);
+        border-top: 1px solid #333;
+        padding-top: 10px;
+    }
+
+    /* 5. Movemos la X de eliminar a la esquina superior */
+    .eliminar {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: rgba(255, 0, 0, 0.1);
+        border-radius: 50%;
+        width: 35px;
+        height: 35px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* 6. El resumen del pedido ocupa todo el ancho */
+    .resumen-carrito {
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
+
+.btn-filtro-moneda {
+    background-color: #2c2c2c; /* Color oscuro como tus filtros */
+    color: white;
+    border: 1px solid #555; /* Borde sutil */
+    padding: 8px 15px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-left: 10px;
+    height: 40px; /* Para que mida lo mismo que los select */
+}
+
+.btn-filtro-moneda:hover {
+    background-color: #3d3d3d;
+    border-color: #c5a059; /* Un toque dorado solo al pasar el mouse */
+}
+
+/* Contenedor del botón en el resumen */
+.selector-moneda-carrito {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2); /* Línea sutil dorada */
+}
+
+/* Estilo del botón de divisa */
+.btn-moneda-resumen {
+    background-color: transparent;
+    color: #d4af37; /* Color dorado */
+    border: 1px solid #d4af37;
+    padding: 10px;
+    width: 100%;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.btn-moneda-resumen:hover {
+    background-color: #d4af37;
+    color: #1a1a1a;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+}
+
+/* Ajuste para que los textos del resumen se alineen mejor */
+.resumen-linea span:last-child, 
+.resumen-total span:last-child {
+    font-weight: bold;
+    color: #fff;
+}
+
+/* Contenedor principal del grid */
+.confirmacion-grid {
+    display: grid;
+    grid-template-columns: 1fr 380px; /* Columna izquierda más ancha, derecha fija */
+    gap: 30px; /* ESTO SEPARA LAS DOS COLUMNAS */
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    align-items: start;
+}
+
+/* Espaciado interno de la columna de información */
+.columna-info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* ESTO SEPARA LOS BLOQUES (Productos, Dirección, Pago) */
+}
+
+/* Mejora de las tarjetas (bloques) */
+.bloque-confirmacion {
+    background: #1e1e1e;
+    border: 1px solid #333;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Títulos de sección */
+.bloque-confirmacion h3 {
+    color: #d4af37;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+    padding-bottom: 10px;
+}
+
+/* Estilo de la columna de resumen (derecha) */
+.columna-resumen {
+    position: sticky;
+    top: 20px; /* Se queda pegada al hacer scroll */
+}
+
+/* Ajustes para móviles */
+@media (max-width: 900px) {
+    .confirmacion-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}

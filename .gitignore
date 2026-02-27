@@ -1,0 +1,14 @@
+# Node
+Backend/node_modules/
+frontend-react/node_modules/
+
+# Variables sensibles (¡Súper importante!)
+Backend/.env
+frontend-react/.env
+
+# Producción
+frontend-react/dist/
+frontend-react/build/
+
+# Varios
+.DS_Store
