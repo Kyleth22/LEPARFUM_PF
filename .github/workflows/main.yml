@@ -2,7 +2,7 @@ name: Node.js CI
 
 on:
   push:
-    branches: [ main ] # Ejecutar al hacer push a la rama principal
+    branches: [ master ] # Ejecutar al hacer push a la rama principal
 
 jobs:
   test:
