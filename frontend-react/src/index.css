@@ -1297,3 +1297,29 @@ main, .perfumes {
         gap: 20px;
     }
 }
+
+/* Mantiene tu diseño, pero mejora el acomodo */
+.filtros-catalogo {
+  display: flex;
+  justify-content: center; /* Centra los elementos */
+  align-items: center;
+  gap: 10px; /* Espacio entre cada filtro */
+  flex-wrap: wrap; /* <--- Esto evita que se amontonen en móviles */
+  padding: 15px;
+  width: 100%;
+}
+
+/* Solo para pantallas pequeñas (móviles) */
+@media (max-width: 600px) {
+  .filtros-catalogo {
+    gap: 15px; /* Un poco más de espacio vertical al apilarse */
+  }
+
+  /* Aseguramos que el botón y los selectores no se vean diminutos */
+  .filtros-catalogo select, 
+  .filtros-catalogo .btn-filtro-moneda {
+    min-width: 200px; /* Evita que se compriman demasiado */
+    flex-grow: 1;    /* Hace que se vean parejos en ancho */
+    max-width: 90%;  /* Pero que no toquen las orillas */
+  }
+}
