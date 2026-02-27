@@ -7,15 +7,23 @@ describe('Pruebas de Robustez y Seguridad de la API', () => {
     let token;
     let usuarioId;
 
-    // Antes de los tests, obtenemos el token para las pruebas protegidas
+    // Aumentamos el tiempo a 20s porque las DBs en la nube (Render) tardan en responder
     beforeAll(async () => {
-        const login = await request(app)
-            .post('/api/login')
-            .send({ correo: 'fer@hotmail.com', password: 'Prueba123' });
-        
-        token = login.body.token;
-        usuarioId = login.body.usuario && login.body.usuario.id;
-    });
+        try {
+            const login = await request(app)
+                .post('/api/login')
+                .send({ correo: 'fer@hotmail.com', password: 'Prueba123' });
+            
+            if (login.body.status === 'success') {
+                token = login.body.token;
+                usuarioId = login.body.usuario && login.body.usuario.id;
+            } else {
+                console.warn("ADVERTENCIA: No se pudo loguear a fer@hotmail.com. Revisa si existe en la DB.");
+            }
+        } catch (error) {
+            console.error("Error en beforeAll:", error);
+        }
+    }, 20000); 
 
     // --- 1. TEST DE LOGIN 
     test('Debería loguear un usuario correctamente', async () => {
@@ -33,17 +41,18 @@ describe('Pruebas de Robustez y Seguridad de la API', () => {
         expect(res.body.data.length).toBeLessThanOrEqual(2);
     });
 
-    // --- 3. TEST DE ROLES / AUTORIZACIÓN 
-    test('PUT /api/admin/actualizar-stock debería ser rechazado si no es admin', async () => {
+    // --- 3. TEST DE ROLES / AUTORIZACIÓN (SEGURIDAD)
+    test('Seguridad: PUT /api/admin/actualizar-stock debería ser rechazado si no es admin', async () => {
         const res = await request(app)
             .put('/api/admin/actualizar-stock')
-            .set('authorization', token)
+            .set('authorization', token || 'no-token')
             .send({ producto_id: 1, nuevo_stock: 99 });
 
+        // Verificamos que el middleware de seguridad funcione
         if (res.statusCode === 403) {
             expect(res.body.message).toContain("permisos de administrador");
         } else {
-            expect(res.statusCode).toEqual(200);
+            expect([200, 403]).toContain(res.statusCode);
         }
     });
 
@@ -51,19 +60,20 @@ describe('Pruebas de Robustez y Seguridad de la API', () => {
     test('Debería activar el middleware de errores global al enviar datos inválidos', async () => {
         const res = await request(app)
             .post('/api/registro')
-            .send({ usuario: '', correo: 'error-formato' }); // Datos incompletos
+            .send({ usuario: '', correo: 'error-formato' }); 
         
-        // El servidor debería responder con un error capturado por el middleware
         expect([400, 500]).toContain(res.statusCode);
         expect(res.body).toHaveProperty('status', 'error');
     });
 
-    // --- 5. TEST DE CARRITO
+    // --- 5. TEST DE CARRITO (FUNCIONAL)
     test('POST /api/carrito agrega un producto y valida el flujo completo', async () => {
-        // Insertar producto temporal
+        if (!token) throw new Error("No hay token disponible para este test");
+
+        // Insertar producto temporal para la prueba
         const [insertResult] = await pool.query(
-            'INSERT INTO productos (nombre, descripcion, precio, imagen_url, stock) VALUES (?, ?, ?, ?, ?)',
-            ['TEST_PERFUME', 'Desc', 500.00, 'test.jpg', 10]
+            'INSERT INTO productos (nombre, descripcion, precio, imagen_url, stock, marca) VALUES (?, ?, ?, ?, ?, ?)',
+            ['TEST_PERFUME', 'Desc', 500.00, 'test.jpg', 10, 'MarcaTest']
         );
         const productoId = insertResult.insertId;
 
@@ -82,13 +92,14 @@ describe('Pruebas de Robustez y Seguridad de la API', () => {
             );
             expect(rows.length).toBeGreaterThan(0);
         } finally {
-            // Limpieza
+            // Limpieza absoluta para no ensuciar la DB de producción
             await pool.query('DELETE FROM carrito WHERE producto_id = ?', [productoId]);
             await pool.query('DELETE FROM productos WHERE id = ?', [productoId]);
         }
-    });
-});
+    }, 15000); // Timeout individual para DB
 
-afterAll(async () => {
-    await pool.end();
+    // Cerramos la conexión al finalizar todos los tests del bloque
+    afterAll(async () => {
+        await pool.end();
+    });
 });
